@@ -1,6 +1,14 @@
 <template>
-  <div>
-    <span @click="isShowMenu = true">home</span>
+  <div style="background-color: #F7F8FB;">
+    <!-- <span @click="isShowMenu = true">home</span> -->
+    <div>
+      <p style="height: 150px; background-color: #ccc;"></p>
+      <p style="height: 150px; background-color: #ccc;"></p>
+      <p class="recommend">- 热门推荐 -</p>
+      <div>
+        <GoodsList />
+      </div>
+    </div>
     <TabBar />
     <TabMenu :isShowMenu="isShowMenu" @changeMenuStateClose="isShowMenu = false" />
   </div>
@@ -10,19 +18,30 @@
 import { defineComponent } from "vue";
 import TabBar from "@/components/TabBar.vue";
 import TabMenu from "@/components/TabMenu.vue";
+import GoodsList from "@/components/GoodsList.vue";
 
 export default defineComponent({
   name: "HomeView",
   components: {
     TabBar,
-    TabMenu
+    TabMenu,
+    GoodsList,
   },
-  setup(){
+  setup() {
     return {
       users: {},
-      isShowMenu: false
-    }
-  }
+      isShowMenu: false,
+    };
+  },
 });
 </script>
+<style lang="scss" scoped>
+.recommend {
+  padding: 0.4rem 0px;
+  margin: 0.16rem 0px;
+  background-color: #fff;
+
+  font-size: 0.24rem;
+}
+</style>
 
