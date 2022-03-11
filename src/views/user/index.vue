@@ -1,152 +1,65 @@
 <template>
   <div>
-    <div class="personal-center-page">
-      <div class="header-bg">
-        <img src="xxxxxx" alt />
-      </div>
-      <div class="home-top">
-        <div class="card-bg-wrap">
-          <!-- <img class="grade" src="xxxxx" alt />
-          <img class="company-logo" src="xxxxx" alt />
-          <p class="piont-use">
-            花积分 &nbsp;
-            <img src="xxxxx" alt />
-          </p>
-          <p class="nickname">{ this.state.memberName || 'Carmen Electra' }</p>
-          <p class="piont-view">
-            1234
-            <span>积分</span>
-          </p>-->
-          <div class="rights">
-            <!-- {
-                this.state.equityLogoUrlArr && this.state.equityLogoUrlArr.map(equityLogoUrl => {
-                  return (
-                    <img click="jump('memberEquity', '/v3/memberEquity')" src={equityLogoUrl} alt="" />
-                  );
-                })
-            }-->
+    <div class="personal">
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-inner-top">
+            <p class="avatar"></p>
+            <p class="name">未登陆</p>
+          </div>
+          <div class="card-inner-bottom">
+            <div class="card-inner-bottom__item">
+              <p class="highlight">3</p>
+              <p class="description">优惠券</p>
+            </div>
+            <div class="card-inner-bottom__item">
+              <p class="highlight">3</p>
+              <p class="description">关于我们</p>
+            </div>
           </div>
         </div>
       </div>
-
-      <section>
-        <!-- <ul className="my_center_list margin-top-20">
-            <li className="margin">
-              <span className="left-span">我的订单</span>
-              <div className="fr right">
-                <span>全部订单</span>
-                <img src="{require('../../assets/images/mine/rightArrow.png')}" alt="" />
-              </div>
-            </li>
-            <li className="orderTab">
-              <div className="tabs">
-                <div className="tabImg">
-                  <img src="{require('../../assets/images/mine/lately_order.png')}" alt="" />
-                  {this.state.recentlyPlacedOrderFlag && <img className="redDot" src="{require('../../assets/images/mine/red_dot.png')}" alt="" />}
-                </div>
-                <span>最近下单</span>
-              </div>
-              <div className="tabs">
-                <div className="tabImg">
-                  <img src="{require('../../assets/images/mine/unpaid_order.png')}" alt="" />
-                  {this.state.pendingPaymentFlag && <img className="redDot" src="{require('../../assets/images/mine/red_dot.png')}" alt="" />}
-                </div>
-                <span>待支付订单</span>
-              </div>
-              <div className="tabs">
-                <div className="tabImg">
-                  <img src="{require('../../assets/images/mine/completed_order.png')}" alt="" />
-                </div>
-                <span>已完成订单</span>
-              </div>
-            </li>
-        </ul>-->
-        <!-- <ul className="my_center_list margin-top-20">
-            <li className="margin">
-              <span className="left-span">我的积分</span>
-              <div className="fr right">
-                <span>积分明细</span>
-                <img src="{require('../../assets/images/mine/rightArrow.png')}" alt="" />
-              </div>
-            </li>
-            <li className="orderTab">
-              <div className="tabs">
-                <div className="tabImg">
-                  <img src="{require('../../assets/images/mine/recently_integral.png')}" alt="" />
-                  {this.state.recentArrivalFlag && <img className="redDot" src={require('../../assets/images/mine/red_dot.png')} alt="" />}
-                </div>
-                <span>最近到账</span>
-              </div>
-              <div className="tabs">
-                <div className="tabImg">
-                  <img src={require('../../assets/images/mine/about_integral.png')} alt="" />
-                  {this.state.imminentArrivalFlag && <img className="redDot" src={require('../../assets/images/mine/red_dot.png')} alt="" />}
-                </div>
-                <span>即将到账</span>
-              </div>
-              <div className="tabs">
-                <div className="tabImg">
-                  <img src={require('../../assets/images/mine/expire_integral.png')} alt="" />
-                </div>
-                <span>即将过期</span>
-              </div>
-            </li>
-        </ul>-->
-        <!--     
-          <ul className="my_center_list margin-top-20">
+      <!-- order -->
+      <div class="order">
+        <div class="order-inner">
+          <p class="order-inner__title">我的订单</p>
+          <ul>
             <li>
-              <span className="left-span">礼券绑定</span>
-              <div className="fr right">
-                <img src="{require('../../assets/images/mine/rightArrow.png')}" alt="" />
-              </div>
+              <i class="iconfont icon-settings"></i>
+              <br />
+              <span>全部订单</span>
             </li>
             <li>
-              <span className="left-span">我的礼包</span>
-              <div className="fr right">
-                <img src="{require('../../assets/images/mine/rightArrow.png')}" alt="" />
-              </div>
-              {this.state.giftBagCount && <p className="tips-coupons">{ this.state.giftBagCount }个礼包待领取</p>}
+              <i class="iconfont icon-settings"></i>
+              <br />
+              <span>待支付</span>
             </li>
             <li>
-              <span className="left-span">我的福利</span>
-              <div className="fr right">
-                <img src="{require('../../assets/images/mine/rightArrow.png')}" alt="" />
-              </div>
-              <p className="tips-coupons">{this.state.couponNum > 9 ? '9+' : this.state.couponNum}
-                <span>张礼券</span>
-              </p>
+              <i class="iconfont icon-settings"></i>
+              <br />
+              <span>待发货</span>
+            </li>
+            <li>
+              <i class="iconfont icon-settings"></i>
+              <br />
+              <span>待收货</span>
             </li>
           </ul>
-          <ul className="my_center_list margin-top-20">
-            <li>
-              <span className="left-span">邀请亲友</span>
-              <div className="fr right">
-                <img src="{require('../../assets/images/mine/rightArrow.png')}" alt="" />
-              </div>
-            </li>
-          </ul>
-          <ul className="my_center_list margin-top-20 fill-blanks">
-            <li>
-              <span className="left-span">客服投诉和问题反馈</span>
-              <div className="fr right">
-                <img src="{require('../../assets/images/mine/rightArrow.png')}" alt="" />
-              </div>
-            </li>
-            <li>
-              <span className="left-span">帮助中心</span>
-              <div className="fr right">
-                <img src="{require('../../assets/images/mine/rightArrow.png')}" alt="" />
-              </div>
-            </li>
-            <li>
-              <span className="left-span">系统设置</span>
-              <div className="fr right">
-                <img src="{require('../../assets/images/mine/rightArrow.png')}" alt="" />
-              </div>
-            </li>
-        </ul>-->
-      </section>
-      <TabBar />
+        </div>
+      </div>
+      <!-- list -->
+      <ul class="list">
+        <li>
+          <i class="iconfont icon-settings"></i>
+          <span>收货地址</span>
+          <i class="iconfont icon-ic_right" style="float: right;"></i>
+        </li>
+        <li>
+          <i class="iconfont icon-settings"></i>
+          <span>收货地址</span>
+          <i class="iconfont icon-ic_right" style="float: right;"></i>
+        </li>
+      </ul>
     </div>
     <TabBar />
   </div>
@@ -165,194 +78,96 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-// .personal-center-page {
-//   padding-bottom: 0.2rem;
-//   width: 100%;
-//   height: 100%;
-//   font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans",
-//     "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
-//   font-weight: 400;
-//   line-height: 1.6;
-//   color: #333;
-//   font-size: 1.6rem;
-//   user-select: none;// 不允许选中
-// }
-
-// /* header背景 */
-// .header-bg {
-//   position: absolute;
-// }
-
-// /* 个人中心列表 */
-// .my_center_list {
-//   background-color: #f8f8f8;
-//   text-align: left;
-//   overflow: hidden;
-//   width: 6.9rem;
-//   margin: auto;
-//   /* box-shadow: 0 0 10px 0 rgba(0,0,0,0.10); */
-//   border-radius: 5px;
-// }
-// .margin-top-20 {
-//   margin-top: 0.2rem;
-// }
-// .my_center_list li {
-//   list-style: none;
-//   height: 0.98rem;
-//   line-height: 0.98rem;
-//   padding: 0 0.35rem;
-//   color: #333;
-//   border-bottom: 1px solid #ececec;
-//   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-//   font-size: 0;
-//   overflow: hidden;
-//   vertical-align: middle;
-// }
-// .my_center_list .margin {
-//   padding: 0;
-//   margin: 0 0.35rem;
-// }
-// .my_center_list li:last-child {
-//   border-bottom: none;
-// }
-// .my_center_list li .left-span {
-//   color: #333;
-//   font-size: 0.28rem;
-//   line-height: 0.98rem;
-//   vertical-align: middle;
-// }
-// .my_center_list li .leftImg {
-//   width: 0.48rem;
-//   vertical-align: middle;
-// }
-// .my_center_list li .leftImg2 {
-//   width: 0.48rem;
-//   vertical-align: middle;
-// }
-// .my_center_list li .fr {
-//   float: right;
-//   font-size: 0;
-//   vertical-align: middle;
-// }
-// .my_center_list li .right {
-//   text-align: right;
-//   height: 0.98rem;
-//   vertical-align: middle;
-// }
-// .my_center_list li .right span {
-//   font-size: 0.28rem;
-//   color: #999;
-//   margin-right: 0.2rem;
-//   line-height: 0.98rem;
-//   vertical-align: middle;
-// }
-// .my_center_list li .right img {
-//   width: 0.16rem;
-//   height: 0.28rem;
-//   vertical-align: middle;
-// }
-// .my_center_list .orderTab {
-//   height: 1.5rem;
-//   overflow: hidden;
-//   text-align: center;
-//   border: none;
-// }
-// .my_center_list .orderTab .tabs {
-//   float: left;
-//   width: 33%;
-//   text-align: center;
-//   margin-top: 0.3rem;
-//   line-height: normal;
-// }
-// .my_center_list .orderTab .tabs span {
-//   font-size: 0.24rem;
-//   color: #666;
-//   margin-top: 0.2rem;
-//   display: inline-block;
-// }
-// .my_center_list .orderTab .tabs .tabImg {
-//   width: 0.56rem;
-//   height: 0.41rem;
-//   margin: auto;
-//   position: relative;
-//   text-align: left;
-// }
-// .my_center_list .orderTab .tabs .tabImg img {
-//   width: 100%;
-// }
-// .my_center_list .orderTab .tabs .tabImg .redDot {
-//   position: absolute;
-//   width: 0.16rem;
-//   right: -0.05rem;
-//   top: -0.05rem;
-// }
-
-// .home-top {
-//   position: relative;
-//   padding-top: 1rem;
-//   text-align: center;
-//   .card-bg-wrap {
-//     position: relative;
-//     width: 6.9rem;
-//     height: 2.9rem;
-//     margin: 0 auto;
-//     // background: url(../../assets/images/mine/card_bg.png) no-repeat; // flag zhaoyang
-//     background-size: cover;
-//     font-size: 0.24rem;
-//     .grade {
-//       position: absolute;
-//       width: 0.86rem;
-//       left: 0.15rem;
-//       top: 0.15rem;
-//     }
-//     .company-logo {
-//       position: absolute;
-//       width: 1.2rem;
-//       right: 0.15rem;
-//       top: 0.15rem;
-//     }
-//     .piont-use {
-//       position: absolute;
-//       right: 0.15rem;
-//       bottom: 0.35rem;
-//       font-weight: bold;
-//     }
-//     .piont-use img{
-//       width: 0.1rem;
-//     }
-//     .nickname {
-//       padding-top: 0.55rem;
-//       font-size: 0.24rem;
-//       font-weight: bold;
-//     }
-//     .piont-view {
-//       font-size: 0.52rem;
-//       font-weight: bold;
-//       color: #a6945d;
-//       span {
-//         font-size: 0.24rem;
-//         font-weight: initial;
-//         color: #bbbbbb;
-//       }
-//     }
-//     .rights {
-//       img {
-//         width: 0.42rem;
-//       }
-//     }
-//   }
-// }
-
-// .fill-blanks {
-//   margin-bottom: 1rem;
-// }
-
-// .tips-coupons{
-//   float: right;
-//   font-size: 0.24rem;
-//   color: #ee3f43;
-// }
-// .tips-coupons span{
-//   color: #999;
-// }
+.avatar {
+  position: absolute;
+  top: -0.2rem;
+  left: 0.4rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  background-color: #157658;
+}
+.name {
+  margin-left: 2.08rem;
+  padding-top: 0.4rem;
+  font-weight: bold;
+  // text-align: left;
+}
+.personal {
+  background-color: #f5f5f5;
+  height: 100vh;
+  .card {
+    height: 3.6rem;
+    padding: 0.6rem 0.32rem 0.4rem;
+    background-color: #dcebe6;
+    box-sizing: border-box;
+    text-align: center;
+    &-inner {
+      height: 100%;
+      background-color: #fff;
+      &-top {
+        position: relative;
+        height: 1.2rem;
+        margin-bottom: 0.34rem;
+      }
+      &-bottom {
+        display: flex;
+        &__item {
+          flex: 1;
+          // height: 1.4rem;
+          .highlight {
+            margin-bottom: 0.12rem;
+            font-size: 0.36rem;
+            color: #157658;
+            font-weight: bold;
+          }
+          .description {
+            font-size: 0.24rem;
+            color: #999;
+          }
+        }
+      }
+    }
+  }
+  .order {
+    padding: 0.3rem;
+    background-color: #fff;
+    &-inner {
+      height: 2rem;
+      box-shadow: 0px 0px 4px 0px rgba(119, 163, 149, 0.2);
+      &__title {
+        padding-top: 0.24rem;
+        margin-left: 0.3rem;
+        margin-bottom: 0.4rem;
+        font-size: 0.24rem;
+        color: #333;
+        font-weight: bold;
+      }
+      ul {
+        display: flex;
+        text-align: center;
+        li {
+          flex: 1;
+          span {
+            margin-top: 0.14rem;
+            color: #666;
+            font-size: 0.24rem;
+          }
+        }
+      }
+    }
+  }
+  .list {
+    li {
+      height: 0.88rem;
+      line-height: 0.88rem;
+      margin-bottom: 0.02rem;
+      background-color: #fff;
+      // text-align: left;
+      color: #333;
+      i {
+        margin: 0rem 0.28rem;
+      }
+    }
+  }
+}
 </style>

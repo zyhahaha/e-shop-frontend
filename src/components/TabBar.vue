@@ -51,6 +51,7 @@ export default defineComponent({
   // opacity: 0.7;
   font-size: 0.24rem;
   background-color: #fff;
+  text-align: center;
   // img {
   //   width: 0.28rem;
   // }
