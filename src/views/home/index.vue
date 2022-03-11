@@ -42,6 +42,7 @@ export default defineComponent({
   background-color: #fff;
 
   font-size: 0.24rem;
+  text-align: center;
 }
 </style>
 

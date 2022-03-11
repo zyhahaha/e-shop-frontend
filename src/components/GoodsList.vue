@@ -1,6 +1,6 @@
 <template>
   <div class="goods-list">
-    <div class="goods-item">
+    <div class="goods-item" @click="$router.push('goods')">
       <p class="goods-img"></p>
       <div style="padding: 0.16rem">
         <P class="goods-title">北欧简约立式台灯</P>
