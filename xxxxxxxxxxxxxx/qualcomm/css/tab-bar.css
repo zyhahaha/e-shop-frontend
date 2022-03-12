@@ -1,0 +1,27 @@
+/* tabar */
+.tab-bar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    /* border-top: 1px solid #ccc; */
+    font-size: 0.28rem;
+    background-color: #f3f5f4;
+    text-align: center;
+}
+.tab-bar .tab-wrap {
+    display: flex;
+}
+.tab-bar .tab-wrap p {
+    flex: 1;
+}
+.tab-bar .tab-wrap p img {
+    margin-right: 0.06rem;
+    width: 0.3rem;
+    vertical-align: middle;
+}
+.tab-bar .tab-wrap p span {
+    vertical-align: middle;
+}

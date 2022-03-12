@@ -1,0 +1,68 @@
+.bg {
+    width: 100%;
+    font-size: 0rem;
+}
+.bg img {
+    width: 100%;
+}
+.content-wrap {
+    position: absolute;
+    top: 6rem;
+    width: 100%;
+    padding-bottom: 1rem;
+}
+/* 经典案例 */
+.content {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.5rem;
+    padding-bottom: 0rem;
+    background-color: #fff;
+    border-radius: 0.4rem;
+    text-align: left;
+
+}
+.content p {
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+}
+.content .point {
+    margin-bottom: 0.2rem;
+    width: 100%;
+    height: 1.5rem;
+    border-radius: 0.4rem;
+    background-color: #ccc;
+}
+/* .content .point:last-child {
+    margin-bottom: 0rem;
+} */
+/* 往年案例 */
+.before-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.before-content .before {
+    width: 32%;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    display: inline-block;
+    background-color: #0b2742;
+    margin-top: 0.18rem;
+    text-align: center;
+    border-radius: 0.4rem;
+    color: #fff;
+}
+.before-content:after {
+    content: "";
+    width: 32%;
+    height: 0px;
+    visibility: hidden;
+}
+/* footer */
+.footer {
+    padding: 0.3rem 0rem;
+    font-size: 0.2rem;
+    color: #717074;
+    text-align: center;
+}

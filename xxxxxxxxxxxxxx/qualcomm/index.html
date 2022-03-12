@@ -5,8 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tab-bar.css">
+    <link rel="stylesheet" href="./css/home.css">
 </head>
 <body>
-    
+    <div>
+        <div class="bg">
+            <img src="./images/home-head.png" alt="">
+        </div>
+        <div class="content-wrap">
+            <ul class="content">
+                <p>2022经典案例</p>
+                <a href="./pages/article/point/index.html">
+                    <li class="point"></li>
+                </a>
+                <a href="./pages/article/point/index.html">
+                    <li class="point"></li>
+                </a>
+                <a href="./pages/article/point/index.html">
+                    <li class="point"></li>
+                </a>
+            </ul>
+            <ul class="content">
+                <p>往年案例</p>
+                <ul class="before-content">
+                    <li class="before">
+                        <a href="./pages/article/before/index.html" style="color: #fff">2020年</a>
+                    </li>
+                    <li class="before">2021年</li>
+                    <li class="before">2022年</li>
+                    <li class="before">2023年</li>
+                </ul>
+            </ul>
+            <!-- 页尾 -->
+            <p class="footer">©2022 Qualcomm. All rights reserved. | 鄂ICP备15019708号</p>
+        </div>
+        
+        <div class="tab-bar">
+            <div class="tab-wrap">
+                <p @click="$router.push('/')">
+                  <img src="./images/home-icon.png" alt="">
+                  <a href="./pages/video/list/index.html">
+                    <span>经典案例</span>
+                  </a>
+                </p>
+                <p @click="$router.push('/user')">
+                    <img src="./images/video-icon.png" alt="">
+                    <a href="./pages/video/list/index.html">
+                        <span>视频集锦</span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="./js/device-init.js"></script>
 </html>
