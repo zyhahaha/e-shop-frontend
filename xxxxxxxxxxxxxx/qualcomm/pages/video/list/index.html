@@ -11,11 +11,25 @@
 </head>
 <body>
     <div>
-        <div class="nav"></div>
+        <div class="nav">
+            <ul>
+                <li>全部</li>
+                <li class="active">精选</li>
+                <li>机器人</li>
+                <li>工业互联</li>
+                <li>智能采矿</li>
+                <li>智慧城市</li>
+                <li>智慧农业</li>
+            </ul>
+        </div>
         <ul class="content">
             <a href="../../../pages/video/play/index.html">
                 <li>
                     <img src="./bg.png" alt="">
+                    <div class="content-text">
+                        <p class="content-text__top">零零无限Falcon猎鹰无人机  ×  高通Snapdragon 820</p>
+                        <p class="content-text__bottom">50 分钟超强续航，重新定义航拍新体验</p>
+                    </div>
                 </li>
             </a>
             <a href="../../../pages/video/play/index.html">
@@ -29,7 +43,7 @@
             <div class="tab-wrap">
                 <p @click="$router.push('/')">
                   <img src="../../../images/home-icon.png" alt="">
-                  <a href="../../../pages/video/list/index.html">
+                  <a href="../../../index.html">
                     <span>经典案例</span>
                   </a>
                 </p>

@@ -1,8 +1,37 @@
 .nav {
     height: 1.2rem;
+    line-height: 1.2rem;
     margin-bottom: 0.4rem;
-    background-color: #ccc;
+    padding: 0rem 0.6rem;
+    /* background-color: #ccc; */
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+    /* 隐藏滚动条 */
+    scrollbar-width: none; /* firefox */
+    -ms-overflow-style: none; /* IE 10+ */
 }
+.nav::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+}
+.nav ul {
+    white-space: nowrap;
+    font-size: 0rem;
+}
+.nav ul li {
+    display: inline-block;
+    margin: 0rem 0.16rem;
+    font-size: 0.28rem;
+    /* flex: 1; */
+}
+.nav ul li.active {
+    font-size: 0.42rem;
+    color: #E04F4F;
+}
+.nav ul li:first-child {
+    margin-left: 0rem;
+}
+/* content */
 .content {
     padding: 0rem 0.6rem;
     padding-bottom: 1rem;
@@ -16,5 +45,19 @@
 }
 .content li img {
     width: 100%;
-
 }
+.content .content-text {
+    padding: 0.1rem 0.3rem;
+    color: #fff;
+}
+.content .content-text__top {
+    font-size: 0.23rem;
+
+    padding-bottom: 0.06rem;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 0.06rem;
+}
+.content .content-text__bottom {
+    font-size: 0.3rem;
+    font-weight: bold;
+}  

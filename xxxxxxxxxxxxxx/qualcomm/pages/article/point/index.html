@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../../../css/common.css">
     <link rel="stylesheet" href="../../../css/tab-bar.css">
+    <link rel="stylesheet" href="../../../css/share.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
@@ -18,7 +19,7 @@
             <div class="tab-wrap">
                 <p @click="$router.push('/')">
                   <img src="../../../images/home-icon.png" alt="">
-                  <a href="./pages/video/list/index.html">
+                  <a href="../../../index.html">
                     <span>查看更多案例</span>
                   </a>
                 </p>
@@ -30,7 +31,12 @@
                 </p>
             </div>
         </div>
+        <!-- share -->
+        <div class="share">
+            <img src="../../../images/share.png" alt="">
+        </div>
     </div>
 </body>
 <script src="../../../js/device-init.js"></script>
+<script src="../../../js/share.js"></script>
 </html>
