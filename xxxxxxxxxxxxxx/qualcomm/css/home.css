@@ -1,10 +1,40 @@
 .bg {
+    position: fixed;
     width: 100%;
     font-size: 0rem;
 }
 .bg img {
     width: 100%;
 }
+.bg-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.3rem 0.45rem;
+    font-size: 0.24rem;
+    color: #fff;
+}
+.bg-text__brand {
+    margin-bottom: 0.35rem;
+    font-size: 0.36rem;
+}
+.bg-text__title {
+    margin-bottom: 0.1rem;
+    font-size: 0.48rem;
+    font-weight: bold;
+
+    /* transform: translate(250px, -45px); */
+}
+.bg-text__subtitle {
+    margin-bottom: 0.25rem;
+    font-size: 0.4rem;
+
+    /* transform: translate(195px, -45px);
+    text-align: right;
+    display: inline-block; */
+}
+.bg-text__content {}
+/* 正文 */
 .content-wrap {
     position: absolute;
     top: 6rem;
@@ -22,16 +52,35 @@
     text-align: left;
 
 }
-.content p {
+.content .content-title {
     margin-bottom: 0.4rem;
     font-weight: bold;
 }
 .content .point {
+    box-sizing: border-box;
     margin-bottom: 0.2rem;
+    padding-top: 0.15rem;
+    padding-left: 0.5rem;
     width: 100%;
-    height: 1.5rem;
+    height: 1.4rem;
+    font-size: 0.24rem;
     border-radius: 0.4rem;
-    background-color: #ccc;
+    /* background-color: #ccc; */
+    background-image: url(../images/home-list-one.png);
+    background-size: cover;
+}
+.content .point .point-tag {
+    display: inline-block;
+    font-size: 0.18rem;
+    color: #E04F4F;
+    border: 1px solid #E04F4F;
+    border-radius: 0.5rem;
+    padding: 0.03rem 0.05rem;
+}
+.content .point .point-text {
+    padding-top: 0.1rem;
+    width: 3.8rem;
+    color: #fff;
 }
 /* .content .point:last-child {
     margin-bottom: 0rem;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>高通 | 融合媒体</title>
     <link rel="stylesheet" href="../../../css/common.css">
     <link rel="stylesheet" href="../../../css/tab-bar.css">
     <link rel="stylesheet" href="../../../css/share.css">
@@ -23,15 +23,13 @@
                     <span>查看更多案例</span>
                   </a>
                 </p>
-                <p @click="$router.push('/user')">
+                <p id="share">
                     <img src="../../../images/video-icon.png" alt="">
-                    <a href="./pages/video/list/index.html">
-                        <span>分享/转发本案例</span>
-                    </a>
+                    <span>分享/转发本案例</span>
                 </p>
             </div>
         </div>
-        <!-- share -->
+        <!-- share page -->
         <div class="share">
             <img src="../../../images/share.png" alt="">
         </div>
@@ -39,4 +37,10 @@
 </body>
 <script src="../../../js/device-init.js"></script>
 <script src="../../../js/share.js"></script>
+<script>
+    var shareBtn = document.getElementById('share')
+    shareBtn && shareBtn.addEventListener('click', function() {
+        _shareCtrl.openShare()
+    })
+</script>
 </html>

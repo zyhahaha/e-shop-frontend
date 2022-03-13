@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>50 分钟超强续航，重新定义航拍新体验</title>
     <link rel="stylesheet" href="../../../css/common.css">
     <link rel="stylesheet" href="../../../css/tab-bar.css">
+    <link rel="stylesheet" href="../../../css/share.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
@@ -65,15 +66,24 @@
         </div>
         <div class="tab-bar">
             <div class="tab-wrap">
-                <p @click="$router.push('/')">
+                <p id="share">
                   <img src="../../../images/home-icon.png" alt="">
-                  <a href="./pages/video/list/index.html">
-                    <span>分享/转发本视频</span>
-                  </a>
+                  <span>分享/转发本视频</span>
                 </p>
             </div>
+        </div>
+        <!-- share page -->
+        <div class="share">
+            <img src="../../../images/share.png" alt="">
         </div>
     </div>
 </body>
 <script src="../../../js/device-init.js"></script>
+<script src="../../../js/share.js"></script>
+<script>
+    var shareBtn = document.getElementById('share')
+    shareBtn && shareBtn.addEventListener('click', function() {
+        _shareCtrl.openShare()
+    })
+</script>
 </html>
