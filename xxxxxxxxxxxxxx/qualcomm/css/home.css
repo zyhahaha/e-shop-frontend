@@ -6,8 +6,17 @@
 .bg img {
 	width: 100%;
 }
+.bg .masking {
+	position: absolute;
+	top: -2rem;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0.5;
+}
 .bg-text {
 	position: absolute;
+	z-index: 9;
 	top: 0;
 	left: 0;
 	padding: 0.3rem 0.45rem;
