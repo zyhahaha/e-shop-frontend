@@ -23,20 +23,30 @@
 	font-size: 0.48rem;
 	font-weight: bold;
 
-	/* transform: translate(250px, -45px); */
+	transition: transform 0.5s;
 }
 .bg-text__subtitle {
 	margin-bottom: 0.25rem;
 	font-size: 0.4rem;
 
-	/* transform: translate(195px, -45px);
-    text-align: right;
-    display: inline-block; */
+	transition: transform 0.5s;
+}
+.bg-text__title__mv {
+	transform: translate(4.84rem, -0.9rem);
+	font-size: 0.42rem;
+}
+.bg-text__subtitle__mv {
+	transform: translate(4.2rem, -0.9rem);
+	font-size: 0.32rem;
+	display: inline-block;
+	text-align: right;
 }
 .bg-text__content {
 }
 /* 正文 */
 .content-wrap {
+	height: calc(100vh - 150px);
+
 	position: absolute;
 	top: 6rem;
 	width: 100%;
@@ -45,6 +55,9 @@
 	border-top-right-radius: 0.4rem;
 	overflow: hidden;
 	background-color: #fff;
+}
+.content-wrap__scroll {
+	overflow-y: scroll;
 }
 /* 经典案例 */
 .content {

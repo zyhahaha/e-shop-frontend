@@ -24,13 +24,31 @@
                 <p class="bg-text__content">
                     随着5G时代的到来，中国企业拥有了更多机会在世界舞台上发光发热，全球市场迎来中国时刻。秉承“根植中国、分享智慧、成就创新”的理念，高通公司在推动中国企业出海的过程中，以生态合作伙伴的心态，助力中国企业打开全球市场，支持中国企业的全球发展。
                     <br>
-                    随着5G时代的到来，中国企业拥有了更多机会在世界舞台上发光发热，全球市场迎来中国时刻。秉承
+                    随着5G时代的到来，中国企业拥有了更多机会在世界舞台上发光发热，全球市场迎来中国时刻。秉承全球市场迎来中国时刻。秉承
                 </p>
             </div>
         </div>
         <div class="content-wrap">
             <ul class="content">
                 <p class="content-title">2022经典案例</p>
+                <a href="./pages/article/point/index.html">
+                    <li class="point">
+                        <p class="point-tag">机器人</p>
+                        <p class="point-text">突破行业默认标准，重新定义航拍新体验</p>
+                    </li>
+                </a>
+                <a href="./pages/article/point/index.html">
+                    <li class="point">
+                        <p class="point-tag">机器人</p>
+                        <p class="point-text">突破行业默认标准，重新定义航拍新体验</p>
+                    </li>
+                </a>
+                <a href="./pages/article/point/index.html">
+                    <li class="point">
+                        <p class="point-tag">机器人</p>
+                        <p class="point-text">突破行业默认标准，重新定义航拍新体验</p>
+                    </li>
+                </a>
                 <a href="./pages/article/point/index.html">
                     <li class="point">
                         <p class="point-tag">机器人</p>
@@ -84,4 +102,24 @@
     </div>
 </body>
 <script src="./js/device-init.js"></script>
+<script>
+    let wrapEl = document.getElementsByClassName('content-wrap')[0]
+    let titleEl = document.getElementsByClassName('bg-text__title')[0]
+    let subtitleEl = document.getElementsByClassName('bg-text__subtitle')[0]
+
+    window.onscroll = function(){
+        let top = document.documentElement.scrollTop || document.body.scrollTop
+        // alert(top)
+
+        if (top >= 150) {
+            wrapEl.className = 'content-wrap content-wrap__scroll'
+            titleEl.className = 'bg-text__title bg-text__title__mv'
+            subtitleEl.className = 'bg-text__subtitle bg-text__subtitle__mv'
+        } else {
+            wrapEl.className = 'content-wrap'
+            titleEl.className = 'bg-text__title'
+            subtitleEl.className = 'bg-text__subtitle'
+        }
+    }
+</script>
 </html>
