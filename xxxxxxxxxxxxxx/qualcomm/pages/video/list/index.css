@@ -1,18 +1,40 @@
 .nav {
+	position: relative;
 	height: 1.2rem;
 	line-height: 1.2rem;
 	margin-bottom: 0.4rem;
 	padding: 0rem 0.6rem;
 	/* background-color: #ccc; */
 
-	overflow-x: scroll;
-	overflow-y: hidden;
+	overflow: hidden;
 	/* 隐藏滚动条 */
 	scrollbar-width: none; /* firefox */
 	-ms-overflow-style: none; /* IE 10+ */
 }
 .nav::-webkit-scrollbar {
 	display: none; /* Chrome Safari */
+}
+.nav-wrap {
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+/* 切换list */
+.nav-switch {
+	position: absolute;
+	top: 0;
+    right: 0;
+    width: 0.4rem;
+    font-size: 0;
+	
+    background: #fff;
+    height: 1.2rem;
+    line-height: 1.65rem;
+    padding-right: 0.6rem;
+
+	box-shadow: -0.4rem 0px 0.4rem #fff;
+}
+.nav-switch img {
+	width: 100%;
 }
 .nav ul {
 	white-space: nowrap;
