@@ -42,5 +42,5 @@
     if (!doc.addEventListener) return;
     window.addEventListener(resizeEvt, recalc, false);
     doc.addEventListener('DOMContentLoaded', recalc, false);
-  })(window);
+})(window);
   

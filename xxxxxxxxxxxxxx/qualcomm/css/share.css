@@ -1,10 +1,10 @@
 .share {
-    position: fixed;
-    top: 100vh;
-    height: 100vh;
-    background-color: #fff;
-    transition: all 0.5s;
+	position: fixed;
+	top: 100vh;
+	height: 100vh;
+	background-color: #fff;
+	transition: all 0.5s;
 }
 .share img {
-    width: 100%;
+	width: 100%;
 }

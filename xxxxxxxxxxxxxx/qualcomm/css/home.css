@@ -1,117 +1,118 @@
 .bg {
-    position: fixed;
-    width: 100%;
-    font-size: 0rem;
+	position: fixed;
+	width: 100%;
+	font-size: 0rem;
 }
 .bg img {
-    width: 100%;
+	width: 100%;
 }
 .bg-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0.3rem 0.45rem;
-    font-size: 0.24rem;
-    color: #fff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0.3rem 0.45rem;
+	font-size: 0.24rem;
+	color: #fff;
 }
 .bg-text__brand {
-    margin-bottom: 0.35rem;
-    font-size: 0.36rem;
+	margin-bottom: 0.35rem;
+	font-size: 0.36rem;
 }
 .bg-text__title {
-    margin-bottom: 0.1rem;
-    font-size: 0.48rem;
-    font-weight: bold;
+	margin-bottom: 0.1rem;
+	font-size: 0.48rem;
+	font-weight: bold;
 
-    /* transform: translate(250px, -45px); */
+	/* transform: translate(250px, -45px); */
 }
 .bg-text__subtitle {
-    margin-bottom: 0.25rem;
-    font-size: 0.4rem;
+	margin-bottom: 0.25rem;
+	font-size: 0.4rem;
 
-    /* transform: translate(195px, -45px);
+	/* transform: translate(195px, -45px);
     text-align: right;
     display: inline-block; */
 }
-.bg-text__content {}
+.bg-text__content {
+}
 /* 正文 */
 .content-wrap {
-    position: absolute;
-    top: 6rem;
-    width: 100%;
-    padding-bottom: 1rem;
+	position: absolute;
+	top: 6rem;
+	width: 100%;
+	padding-bottom: 1rem;
+	background-color: #fff;
 }
 /* 经典案例 */
 .content {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 0.5rem;
-    padding-bottom: 0rem;
-    background-color: #fff;
-    border-radius: 0.4rem;
-    text-align: left;
-
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.5rem;
+	padding-bottom: 0rem;
+	background-color: #fff;
+	border-radius: 0.4rem;
+	text-align: left;
 }
 .content .content-title {
-    margin-bottom: 0.4rem;
-    font-weight: bold;
+	margin-bottom: 0.4rem;
+	font-weight: bold;
 }
 .content .point {
-    box-sizing: border-box;
-    margin-bottom: 0.2rem;
-    padding-top: 0.15rem;
-    padding-left: 0.5rem;
-    width: 100%;
-    height: 1.4rem;
-    font-size: 0.24rem;
-    border-radius: 0.4rem;
-    /* background-color: #ccc; */
-    background-image: url(../images/home-list-one.png);
-    background-size: cover;
+	box-sizing: border-box;
+	margin-bottom: 0.2rem;
+	padding-top: 0.15rem;
+	padding-left: 0.5rem;
+	width: 100%;
+	height: 1.4rem;
+	font-size: 0.24rem;
+	border-radius: 0.4rem;
+	/* background-color: #ccc; */
+	background-image: url(../images/home-list-one.png);
+	background-size: cover;
 }
 .content .point .point-tag {
-    display: inline-block;
-    font-size: 0.18rem;
-    color: #E04F4F;
-    border: 1px solid #E04F4F;
-    border-radius: 0.5rem;
-    padding: 0.03rem 0.05rem;
+	display: inline-block;
+	font-size: 0.18rem;
+	color: #e04f4f;
+	border: 1px solid #e04f4f;
+	border-radius: 0.5rem;
+	padding: 0.03rem 0.05rem;
 }
 .content .point .point-text {
-    padding-top: 0.1rem;
-    width: 3.8rem;
-    color: #fff;
+	padding-top: 0.1rem;
+	width: 3.8rem;
+	color: #fff;
 }
 /* .content .point:last-child {
     margin-bottom: 0rem;
 } */
 /* 往年案例 */
 .before-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 .before-content .before {
-    width: 32%;
-    height: 1.2rem;
-    line-height: 1.2rem;
-    display: inline-block;
-    background-color: #0b2742;
-    margin-top: 0.18rem;
-    text-align: center;
-    border-radius: 0.4rem;
-    color: #fff;
+	width: 32%;
+	height: 1.2rem;
+	line-height: 1.2rem;
+	display: inline-block;
+	background-color: #0b2742;
+	margin-top: 0.18rem;
+	text-align: center;
+	border-radius: 0.4rem;
+	color: #fff;
 }
 .before-content:after {
-    content: "";
-    width: 32%;
-    height: 0px;
-    visibility: hidden;
+	content: "";
+	width: 32%;
+	height: 0px;
+	visibility: hidden;
 }
 /* footer */
 .footer {
-    padding: 0.3rem 0rem;
-    font-size: 0.2rem;
-    color: #717074;
-    text-align: center;
+	padding: 0.3rem 0rem;
+	font-size: 0.2rem;
+	color: #717074;
+	text-align: center;
 }
