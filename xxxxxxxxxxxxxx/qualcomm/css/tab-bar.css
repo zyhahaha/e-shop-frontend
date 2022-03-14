@@ -17,6 +17,11 @@
 .tab-bar .tab-wrap p {
 	flex: 1;
 }
+.tab-bar .tab-wrap p a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
 .tab-bar .tab-wrap p img {
 	margin-right: 0.06rem;
 	width: 0.3rem;

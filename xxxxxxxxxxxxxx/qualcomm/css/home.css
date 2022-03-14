@@ -111,6 +111,11 @@
 /* .content .point:last-child {
     margin-bottom: 0rem;
 } */
+.afull {
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+}
 /* 往年案例 */
 .before-content {
 	display: flex;
@@ -136,6 +141,9 @@
 }
 /* footer */
 .footer {
+	/* position: absolute;
+	bottom: 1rem;
+	width: 100%; */
 	padding: 0.3rem 0rem;
 	font-size: 0.2rem;
 	color: #717074;
