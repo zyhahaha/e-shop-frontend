@@ -41,6 +41,9 @@
 	top: 6rem;
 	width: 100%;
 	padding-bottom: 1rem;
+	border-top-left-radius: 0.4rem;
+	border-top-right-radius: 0.4rem;
+	overflow: hidden;
 	background-color: #fff;
 }
 /* 经典案例 */
@@ -50,7 +53,7 @@
 	padding: 0.5rem;
 	padding-bottom: 0rem;
 	background-color: #fff;
-	border-radius: 0.4rem;
+	/* border-radius: 0.4rem; */
 	text-align: left;
 }
 .content .content-title {
