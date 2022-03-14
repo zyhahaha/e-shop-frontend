@@ -24,7 +24,7 @@
                 </ul>
             </div>
             <div class="nav-switch">
-                <img src="../../../images/list-icon.png" alt="">
+                <img src="../../../images/list-icon.png" alt="" id="more-btn">
             </div>
         </div>
         <ul class="content">
@@ -75,11 +75,39 @@
                 </p>
             </div>
         </div>
+        <!-- fixed nav -->
+        <div class="fixednav" id="fixednav">
+            <div class="fixednav-head">
+                <span class="title">视频分类</span>
+                <img class="icon" src="../../../images/close-icon.png" alt="" id="close-btn">
+            </div>
+            <ul class="fixednav-content">
+                <li class="fixednav-content__item">全部</li>
+                <li class="fixednav-content__item">精选</li>
+                <li class="fixednav-content__item">机器人</li>
+                <li class="fixednav-content__item">精选</li>
+                <li class="fixednav-content__item">精选</li>
+                <li class="fixednav-content__item">精选</li>
+                <li class="fixednav-content__item">精选</li>
+                <li class="fixednav-content__item">精选</li>
+                <li class="fixednav-content__item">精选</li>
+                <li class="fixednav-content__item">精选</li>
+            </ul>
+        </div>
     </div>
 </body>
 <script src="../../../js/device-init.js"></script>
 <script src="../../../js/vue.min.js"></script>
 <script>
-    var els = document.querySelectorAll('.nav ul li')
+    // var els = document.querySelectorAll('.nav ul li')
+    var fixednav = document.getElementById('fixednav')
+    var moreBtnEl = document.getElementById('more-btn')
+    var closeBtnEl = document.getElementById('close-btn')
+    moreBtnEl.addEventListener('click', function(){
+        fixednav.style.top = '0'
+    })
+    closeBtnEl.addEventListener('click', function(){
+        fixednav.style.top = '-500px'
+    })
 </script>
 </html>

@@ -102,3 +102,43 @@
 	font-size: 0.3rem;
 	font-weight: bold;
 }
+
+/* fixed nav */
+.fixednav {
+	box-sizing: border-box;
+	position: fixed;
+	top: -420px;
+	left: 0;
+	width: 100%;
+	padding: 0.4rem 0.6rem 0.4rem 0.3rem;
+	background-color: #f7f8fc;
+
+	font-size: 0.28rem;
+
+	transition: top 0.8s;
+}
+.fixednav-head {
+	padding-top: 0.1rem;
+	padding-left: 0.3rem;
+	margin-bottom: 0.4rem;
+}
+.fixednav-head .title {}
+.fixednav-head .icon {
+	float: right;
+	width: 0.28rem;
+}
+.fixednav-content {
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap;
+}
+.fixednav-content__item {
+	box-sizing: border-box;
+    width: calc(calc(100% / 4) - 0.12rem);
+    margin: 0.06rem;
+    height: 1.2rem;
+	line-height: 1.2rem;
+	text-align: center;
+
+	background-color: #fff;
+}
