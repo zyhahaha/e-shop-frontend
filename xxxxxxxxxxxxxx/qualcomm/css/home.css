@@ -51,6 +51,8 @@
 	text-align: right;
 }
 .bg-text__content {
+	height: 2.5rem;
+	text-align: justify;
 }
 /* 正文 */
 .content-wrap {
