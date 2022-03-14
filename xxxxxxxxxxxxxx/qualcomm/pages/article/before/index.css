@@ -4,3 +4,7 @@
 .context img {
 	width: 100%;
 }
+
+.context #myCanvas {
+	width: 100%;
+}
