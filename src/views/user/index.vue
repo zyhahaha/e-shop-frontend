@@ -27,11 +27,6 @@
             <li>
               <i class="iconfont icon-settings"></i>
               <br />
-              <span>全部订单</span>
-            </li>
-            <li>
-              <i class="iconfont icon-settings"></i>
-              <br />
               <span>待支付</span>
             </li>
             <li>
@@ -44,6 +39,11 @@
               <br />
               <span>待收货</span>
             </li>
+            <li>
+              <i class="iconfont icon-settings"></i>
+              <br />
+              <span>已完成</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -51,7 +51,12 @@
       <ul class="list">
         <li>
           <i class="iconfont icon-settings"></i>
-          <span>收货地址</span>
+          <span>全部订单</span>
+          <i class="iconfont icon-ic_right" style="float: right;"></i>
+        </li>
+        <li>
+          <i class="iconfont icon-settings"></i>
+          <span>优惠券</span>
           <i class="iconfont icon-ic_right" style="float: right;"></i>
         </li>
         <li>
