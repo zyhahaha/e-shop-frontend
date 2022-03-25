@@ -3,41 +3,41 @@
     <div class="goods-item" @click="$router.push('goods')">
       <p class="goods-img"></p>
       <div style="padding: 0.16rem">
-        <P class="goods-title">北欧简约立式台灯</P>
-        <P class="goods-pic">¥ 298</P>
-        <P class="goods-subtitle">简约北欧风，单色立式台灯搭配性冷淡风格</P>
+        <p class="goods-title">北欧简约立式台灯</p>
+        <p class="goods-pic">¥ 298</p>
+        <p class="goods-subtitle">简约北欧风，单色立式台灯搭配性冷淡风格</p>
       </div>
     </div>
     <div class="goods-item" @click="$router.push('goods')">
       <p class="goods-img"></p>
       <div style="padding: 0.16rem">
-        <P class="goods-title">北欧简约立式台灯</P>
-        <P class="goods-pic">¥ 298</P>
-        <P class="goods-subtitle">简约北欧风，单色立式台灯搭配性冷淡风格</P>
+        <p class="goods-title">北欧简约立式台灯</p>
+        <p class="goods-pic">¥ 298</p>
+        <p class="goods-subtitle">简约北欧风，单色立式台灯搭配性冷淡风格</p>
       </div>
     </div>
     <div class="goods-item" @click="$router.push('goods')">
       <p class="goods-img"></p>
       <div style="padding: 0.16rem">
-        <P class="goods-title">北欧简约立式台灯</P>
-        <P class="goods-pic">¥ 298</P>
-        <P class="goods-subtitle">简约北欧风，单色立式台灯搭配性冷淡风格</P>
+        <p class="goods-title">北欧简约立式台灯</p>
+        <p class="goods-pic">¥ 298</p>
+        <p class="goods-subtitle">简约北欧风，单色立式台灯搭配性冷淡风格</p>
       </div>
     </div>
     <div class="goods-item" @click="$router.push('goods')">
       <p class="goods-img"></p>
       <div style="padding: 0.16rem">
-        <P class="goods-title">北欧简约立式台灯</P>
-        <P class="goods-pic">¥ 298</P>
-        <P class="goods-subtitle">简约北欧风，单色立式台灯搭配性冷淡风格</P>
+        <p class="goods-title">北欧简约立式台灯</p>
+        <p class="goods-pic">¥ 298</p>
+        <p class="goods-subtitle">简约北欧风，单色立式台灯搭配性冷淡风格</p>
       </div>
     </div>
     <div class="goods-item" @click="$router.push('goods')">
       <p class="goods-img"></p>
       <div style="padding: 0.16rem">
-        <P class="goods-title">北欧简约立式台灯</P>
-        <P class="goods-pic">¥ 298</P>
-        <P class="goods-subtitle">简约北欧风，单色立式台灯搭配性冷淡风格</P>
+        <p class="goods-title">北欧简约立式台灯</p>
+        <p class="goods-pic">¥ 298</p>
+        <p class="goods-subtitle">简约北欧风，单色立式台灯搭配性冷淡风格</p>
       </div>
     </div>
   </div>

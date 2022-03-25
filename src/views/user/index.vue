@@ -24,23 +24,23 @@
         <div class="order-inner">
           <p class="order-inner__title">我的订单</p>
           <ul>
-            <li>
-              <i class="iconfont icon-settings"></i>
+            <li @click="$router.push('/')">
+              <i class="iconfont icon-daizhifu"></i>
               <br />
               <span>待支付</span>
             </li>
-            <li>
-              <i class="iconfont icon-settings"></i>
+            <li @click="$router.push('/')">
+              <i class="iconfont icon-daifahuo"></i>
               <br />
               <span>待发货</span>
             </li>
             <li>
-              <i class="iconfont icon-settings"></i>
+              <i class="iconfont icon-daishouhuo"></i>
               <br />
               <span>待收货</span>
             </li>
             <li>
-              <i class="iconfont icon-settings"></i>
+              <i class="iconfont icon-daishouhuo"></i>
               <br />
               <span>已完成</span>
             </li>
@@ -49,18 +49,18 @@
       </div>
       <!-- list -->
       <ul class="list">
-        <li>
-          <i class="iconfont icon-settings"></i>
+        <li @click="$router.push('/user/order')">
+          <i class="iconfont icon-quanbudingdan"></i>
           <span>全部订单</span>
           <i class="iconfont icon-ic_right" style="float: right;"></i>
         </li>
         <li>
-          <i class="iconfont icon-settings"></i>
+          <i class="iconfont icon-youhuiquan"></i>
           <span>优惠券</span>
           <i class="iconfont icon-ic_right" style="float: right;"></i>
         </li>
         <li>
-          <i class="iconfont icon-settings"></i>
+          <i class="iconfont icon-shouhuodizhi"></i>
           <span>收货地址</span>
           <i class="iconfont icon-ic_right" style="float: right;"></i>
         </li>
