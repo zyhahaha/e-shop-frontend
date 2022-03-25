@@ -2,6 +2,10 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
   {
+    path: '/login',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "login" */ '../views/login/index.vue')
+  }, {
     path: '/',
     name: 'home',
     component: () => import(/* webpackChunkName: "home" */ '../views/home/index.vue')
@@ -16,11 +20,15 @@ const routes: Array<RouteRecordRaw> = [
   }, {
     path: '/goods',
     name: 'goods',
-    component: () => import(/* webpackChunkName: "goods" */ '../views/goods/detail.vue')
+    component: () => import(/* webpackChunkName: "goods" */ '../views/goods/index.vue')
   }, {
-    path: '/login',
-    name: 'login',
-    component: () => import(/* webpackChunkName: "login" */ '../views/login/index.vue')
+    path: '/order',
+    name: 'order',
+    component: () => import(/* webpackChunkName: "order" */ '../views/order/index.vue')
+  }, {
+    path: '/payment',
+    name: 'payment',
+    component: () => import(/* webpackChunkName: "payment" */ '../views/payment/index.vue')
   }
 ]
 
