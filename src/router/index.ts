@@ -29,6 +29,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/payment',
     name: 'payment',
     component: () => import(/* webpackChunkName: "payment" */ '../views/payment/index.vue')
+  },
+  // 二级页面
+  {
+    path: '/user/order',
+    name: 'user-order',
+    component: () => import(/* webpackChunkName: "user-order" */ '../views/user/order/index.vue')
   }
 ]
 
