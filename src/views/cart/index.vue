@@ -2,27 +2,33 @@
   <div>
     <ul class="goods">
       <li class="goods-item">
-        <p class="goods-img"></p>
+        <p class="goods-img">
+          <img src="http://121.4.102.246:7001/e-shop/goods/goods-01.jpg" alt="" />
+        </p>
         <div class="goods-item__wrap">
-          <p class="name">百搭短袖T恤 百搭短袖T恤 百搭短袖…</p>
-          <p class="spec">黑色；圆领款；M(165)</p>
-          <p class="price">¥ 239</p>
+          <p class="name">大宝 SOD蜜</p>
+          <p class="spec">90ml/瓶</p>
+          <p class="price">¥ 88</p>
         </div>
       </li>
       <li class="goods-item">
-        <p class="goods-img"></p>
+        <p class="goods-img">
+          <img src="http://121.4.102.246:7001/e-shop/goods/goods-04.jpg" alt="" />
+        </p>
         <div class="goods-item__wrap">
-          <p class="name">百搭短袖T恤 百搭短袖T恤 百搭短袖…</p>
-          <p class="spec">黑色；圆领款；M(165)</p>
-          <p class="price">¥ 239</p>
+          <p class="name">海氏海诺 创口贴</p>
+          <p class="spec">6片装</p>
+          <p class="price">¥ 68</p>
         </div>
       </li>
       <li class="goods-item">
-        <p class="goods-img"></p>
+        <p class="goods-img">
+          <img src="http://121.4.102.246:7001/e-shop/goods/goods-03.jpg" alt="" />
+        </p>
         <div class="goods-item__wrap">
-          <p class="name">百搭短袖T恤 百搭短袖T恤 百搭短袖…</p>
-          <p class="spec">黑色；圆领款；M(165)</p>
-          <p class="price">¥ 239</p>
+          <p class="name">999 复方百部止咳糖浆</p>
+          <p class="spec">100ml*1瓶/盒</p>
+          <p class="price">¥ 58</p>
         </div>
       </li>
     </ul>
@@ -30,7 +36,7 @@
     <div class="count">
       <span class="count-selected">已选（3）</span>
       <p class="count-btn">结算</p>
-      <p class="count-price">合计 <span>¥127</span></p>
+      <p class="count-price">合计 <span>¥214</span></p>
     </div>
     <TabBar />
   </div>
