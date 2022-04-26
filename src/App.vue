@@ -24,4 +24,14 @@ li {
 
   font-size: 0.28rem;
 }
+
+.goods-img {
+  padding: 0.2rem;
+  box-sizing: border-box;
+  background: #fff;
+}
+.goods-img img {
+  width: 100%;
+  max-height: 100%;
+}
 </style>

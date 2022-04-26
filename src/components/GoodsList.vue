@@ -1,7 +1,9 @@
 <template>
   <div class="goods-list">
     <div class="goods-item" @click="$router.push('goods')">
-      <p class="goods-img"></p>
+      <p class="goods-img">
+        <img src="http://121.4.102.246:7001/e-shop/goods/goods-01.jpg" alt="" />
+      </p>
       <div style="padding: 0.16rem">
         <p class="goods-title">北欧简约立式台灯</p>
         <p class="goods-pic">¥ 298</p>
@@ -9,7 +11,9 @@
       </div>
     </div>
     <div class="goods-item" @click="$router.push('goods')">
-      <p class="goods-img"></p>
+      <p class="goods-img">
+        <img src="http://121.4.102.246:7001/e-shop/goods/goods-01.jpg" alt="" />
+      </p>
       <div style="padding: 0.16rem">
         <p class="goods-title">北欧简约立式台灯</p>
         <p class="goods-pic">¥ 298</p>
@@ -17,7 +21,9 @@
       </div>
     </div>
     <div class="goods-item" @click="$router.push('goods')">
-      <p class="goods-img"></p>
+      <p class="goods-img">
+        <img src="http://121.4.102.246:7001/e-shop/goods/goods-01.jpg" alt="" />
+      </p>
       <div style="padding: 0.16rem">
         <p class="goods-title">北欧简约立式台灯</p>
         <p class="goods-pic">¥ 298</p>
@@ -25,7 +31,9 @@
       </div>
     </div>
     <div class="goods-item" @click="$router.push('goods')">
-      <p class="goods-img"></p>
+      <p class="goods-img">
+        <img src="http://121.4.102.246:7001/e-shop/goods/goods-01.jpg" alt="" />
+      </p>
       <div style="padding: 0.16rem">
         <p class="goods-title">北欧简约立式台灯</p>
         <p class="goods-pic">¥ 298</p>
@@ -33,7 +41,9 @@
       </div>
     </div>
     <div class="goods-item" @click="$router.push('goods')">
-      <p class="goods-img"></p>
+      <p class="goods-img">
+        <img src="http://121.4.102.246:7001/e-shop/goods/goods-01.jpg" alt="" />
+      </p>
       <div style="padding: 0.16rem">
         <p class="goods-title">北欧简约立式台灯</p>
         <p class="goods-pic">¥ 298</p>
@@ -82,7 +92,7 @@ export default defineComponent({
 .goods-img {
   width: 100%;
   height: 3rem;
-  background-color: #ccc;
+  // background-color: #ccc;
 }
 .goods-title {
   font-size: 0.28rem;

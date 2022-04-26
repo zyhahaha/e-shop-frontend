@@ -52,7 +52,7 @@ export default {
   display: inline-block;
   width: 1.6rem;
   height: 1.6rem;
-  background-color: #ccc;
+  // background-color: #ccc;
 }
 .goods {
   &-item {

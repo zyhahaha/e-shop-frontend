@@ -4,8 +4,10 @@
       <div class="card">
         <div class="card-inner">
           <div class="card-inner-top">
-            <p class="avatar"></p>
-            <p class="name">未登陆</p>
+            <p class="avatar">
+              <img src="@/assets/avatar.jpg" alt="">
+            </p>
+            <p class="name">巴木旦</p>
           </div>
           <div class="card-inner-bottom">
             <div class="card-inner-bottom__item">
@@ -13,7 +15,10 @@
               <p class="description">优惠券</p>
             </div>
             <div class="card-inner-bottom__item">
-              <p class="highlight">3</p>
+              <!-- <p class="highlight">3</p> -->
+              <p class="highlight">
+                <i class="iconfont icon-info"></i>
+              </p>
               <p class="description">关于我们</p>
             </div>
           </div>
@@ -90,12 +95,15 @@ export default defineComponent({
   width: 1.4rem;
   height: 1.4rem;
   background-color: #157658;
+  img {
+    width: 100%;
+  }
 }
 .name {
   margin-left: 2.08rem;
   padding-top: 0.4rem;
   font-weight: bold;
-  // text-align: left;
+  text-align: left;
 }
 .personal {
   background-color: #f5f5f5;

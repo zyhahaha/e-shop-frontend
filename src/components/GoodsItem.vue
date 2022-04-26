@@ -1,6 +1,8 @@
 <template>
   <div class="goods-item">
-    <p class="goods-img"></p>
+    <p class="goods-img">
+      <img src="http://121.4.102.246:7001/e-shop/goods/goods-01.jpg" alt="">
+    </p>
   </div>
 </template>
 
@@ -19,6 +21,6 @@ export default defineComponent({
 .goods-img {
   width: 100%;
   height: 2rem;
-  background-color: #ccc;
+  // background-color: #ccc;
 }
 </style>
