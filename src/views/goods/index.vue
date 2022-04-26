@@ -1,11 +1,13 @@
 <template>
   <div>
-    <p class="carousel"></p>
+    <p class="carousel">
+      <img src="http://121.4.102.246:7001/e-shop/goods/goods-04.jpg" alt="" />
+    </p>
     <div class="info">
       <div class="info-inner">
-        <p class="info-inner__title">北欧风简约 四角柜子 原木深白色 给你极致的生活体验</p>
-        <p class="info-inner__subtitle">简约风格的街头感，潮流穿搭</p>
-        <p class="info-inner__price">¥ 699</p>
+        <p class="info-inner__title">海氏海诺 创口贴</p>
+        <p class="info-inner__subtitle">该产品主要用于真皮浅层及其以上的浅表性小创伤、擦伤等,为浅表创面、皮肤损伤提供愈合环境。</p>
+        <p class="info-inner__price">¥ 68</p>
       </div>
     </div>
     <!-- 优惠券 -->
@@ -16,7 +18,7 @@
     <div class="description">
       <ul class="description-inner">
         <li>
-          品牌：YASAKO
+          品牌：国产
         </li>
         <li>
           发货地：上海
@@ -49,6 +51,10 @@ export default {
 .carousel {
   height: 6.8rem;
   background-color: #ccc;
+  img {
+    width: 100%;
+    max-height: 100%;
+  }
 }
 .info {
   padding: 0.26rem 0.3rem 0.3rem;
