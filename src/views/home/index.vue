@@ -2,8 +2,11 @@
   <div style="background-color: #F7F8FB;">
     <!-- <span @click="isShowMenu = true">home</span> -->
     <div>
-      <p style="height: 150px; background-color: #ccc;"></p>
-      <p style="height: 150px; background-color: #ccc;"></p>
+      <!-- <p style="height: 150px; background-color: #ccc;"></p> -->
+      <!-- <p style="height: 150px; background-color: #ccc;"></p> -->
+      <div style="font-size: 0px;">
+        <img src="@/assets/home/banner.png" alt="" style="width: 100%;">
+      </div>
       <p class="recommend">- 热门推荐 -</p>
       <div>
         <GoodsList />
