@@ -1,86 +1,172 @@
 <template>
   <div>
-    <ul class="goods">
-      <li class="goods-item">
-        <p class="goods-img">
-          <img src="http://121.4.102.246:7001/e-shop/goods/goods-01.jpg" alt="" />
-        </p>
-        <div class="goods-item__wrap">
-          <p class="name">大宝 SOD蜜</p>
-          <p class="spec">90ml/瓶</p>
-          <p class="price">¥ 88</p>
-        </div>
-      </li>
-      <li class="goods-item">
-        <p class="goods-img">
-          <img src="http://121.4.102.246:7001/e-shop/goods/goods-04.jpg" alt="" />
-        </p>
-        <div class="goods-item__wrap">
-          <p class="name">海氏海诺 创口贴</p>
-          <p class="spec">6片装</p>
-          <p class="price">¥ 68</p>
-        </div>
-      </li>
-      <li class="goods-item">
-        <p class="goods-img">
-          <img src="http://121.4.102.246:7001/e-shop/goods/goods-03.jpg" alt="" />
-        </p>
-        <div class="goods-item__wrap">
-          <p class="name">999 复方百部止咳糖浆</p>
-          <p class="spec">100ml*1瓶/盒</p>
-          <p class="price">¥ 58</p>
-        </div>
-      </li>
-    </ul>
+    <div class="content">
+      <ul class="list">
+        <li class="list-item" v-for="(cartItem, key) in cartList" :key="key">
+          <div class="list-item_img">
+            <img src="" alt="" />
+          </div>
+          <div class="list-item_text">
+            <div class="list-item_text--top">
+              <p>{{ cartItem.goodsName }}</p>
+              <span>{{ cartItem.goodsSpec }}</span>
+            </div>
+            <div class="list-item_text--bottom">
+              <div class="list-item_text--bottom__left">
+                <p>{{ cartItem.goodsPrice }}</p>
+              </div>
+              <div class="list-item_text--bottom__right">
+                <img src="@/assets/minus.png" alt="" @click="onMinus(cartItem)" />
+                <p class="list-item_text--bottom__right---num">{{ cartItem.count }}</p>
+                <img src="@/assets/add.png" alt="" @click="onAdd(cartItem)" />
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
     <!-- bottom -->
     <div class="count">
-      <span class="count-selected">已选（3）</span>
-      <p class="count-btn">结算</p>
-      <p class="count-price">合计 <span>¥214</span></p>
+      <!-- <span class="count-selected">已选（3）</span> -->
+      <p class="count-btn" @click="$router.push('/submitorder')">结算 ({{ cartList.length }})</p>
+      <p class="count-price">合计 <span>¥{{ computePrice() }}</span></p>
     </div>
     <TabBar />
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 import TabBar from "@/components/TabBar.vue"; // @ is an alias to /src
 
 export default defineComponent({
-  name: "CartView",
+  name: "NewCard",
   components: {
     TabBar,
+  },
+  data() {
+    return {
+      cartList: [
+        {
+          goodsName: "百搭短袖T恤 ssss",
+          goodsSpec: "asdf",
+          goodsPrice: "298",
+          count: 1
+        },{
+          goodsName: "百搭短袖T恤 ssss",
+          goodsSpec: "asdf",
+          goodsPrice: "298",
+          count: 1
+        },{
+          goodsName: "百搭短袖T恤 ssss",
+          goodsSpec: "asdf",
+          goodsPrice: "298",
+          count: 1
+        },
+      ],
+    };
+  },
+  methods: {
+    onMinus(item) {
+      console.log(item);
+      item.count --
+    },
+    onAdd(item) {
+      console.log(item);
+      item.count ++
+    },
+    // 计算合计
+    computePrice(){
+      let totalPrice = 0
+      this.cartList.forEach(item => {
+        totalPrice += (item.count * item.goodsPrice)
+      })
+      return totalPrice
+    }
   },
 });
 </script>
 
 <style lang="scss" scoped>
-.goods-img {
-  display: inline-block;
-  width: 1.6rem;
-  height: 1.6rem;
-  // background-color: #ccc;
-}
-.goods {
-  &-item {
-    padding: 0.30rem;
-    border-bottom: 1px solid #F5F5F5;
-    &__wrap {
-      display: inline-block;
-      height: 1.6rem;
-      margin-left: 0.30rem;
-      vertical-align: top;
-      .spec {
+.content {
+  //   z-index: 99;
+  background-color: #ffffff;
+  min-height: 100vh;
+  // margin-top: 0.2rem;
+  .list {
+    &-item {
+      padding: 0.3rem;
+      position: relative;
+      border-bottom: 1px solid rgb(227, 227, 227);
+      display: flex;
+      &_img {
+        // float: left;
         display: inline-block;
-        padding: 0.08rem;
-        margin: 0.14rem 0rem 0.32rem;
-        font-size: 0.20rem;
-        color: #999;
-        background-color: #F3F3F3;
+        vertical-align: middle;
+        width: 1.6rem;
+        height: 1.6rem;
+        border: 1px solid rgb(226, 226, 226);
+        margin-right: 0.3rem;
+        img {
+          width: 100%;
+        }
       }
-      .price {
-        color: #157658;
-        font-weight: bold;
+      &_text {
+        flex: 1;
+        display: inline-block;
+        vertical-align: middle;
+        &--top {
+          text-align: left;
+          margin-bottom: 0.3rem;
+          p {
+            font-size: 0.28rem;
+            color: #333333;
+            margin-bottom: 0.2rem;
+
+            white-space: nowrap; // 文本强制不换行；
+            text-overflow: ellipsis; // 文本溢出显示省略号；
+            overflow: hidden; // 溢出的部分隐藏；
+          }
+          span {
+            background-color: #f3f3f3;
+            font-size: 0.2rem;
+            color: #999;
+          }
+        }
+        &--bottom {
+          overflow: hidden;
+          &__left {
+            float: left;
+            color: #157658;
+            font-size: 0.28rem;
+            height: 0.44rem;
+            line-height: 0.44rem;
+          }
+          &__right {
+            float: right;
+            overflow: hidden;
+            &---num {
+              display: inline-block;
+              background-color: #dcebe6;
+              padding: 0.06rem 0.26rem;
+              vertical-align: middle;
+            }
+            img {
+              width: 0.32rem;
+              vertical-align: middle;
+            }
+            // &---minus {
+            //   left: -0.24rem;
+            //   bottom: -0.35rem;
+            //   position: relative;
+            // }
+            // &---add {
+            //   right: -0.84rem;
+            //   bottom: 0.35rem;
+            //   position: relative;
+            // }
+          }
+        }
       }
     }
   }

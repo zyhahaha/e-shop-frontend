@@ -1,39 +1,55 @@
 <template>
   <div class="content">
-    <p class="please">请登录</p>
+    <p class="please">请注册</p>
 
-    <input v-model="name" class="name" type="text" placeholder="请输入账号" />
+    <input v-model="name" class="name" type="text" placeholder="请输入用户名" />
     <input
       v-model="password"
       class="password"
       type="text"
       placeholder="请输入密码"
     />
-    <!-- <a @clicl="$router.push('/registered')">点击注册</a> -->
-    <button class="login" @click="onLogin">登录</button>
+    <input
+      v-model="repassword"
+      class="password"
+      type="text"
+      placeholder="请确认密码"
+    />
+    <input
+      v-model="mobile"
+      class="password"
+      type="text"
+      placeholder="请输入手机号"
+    />
+    <button class="login" @click="onRegister">注册</button>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { AccountLogin } from "@/api/account";
+import { AccountRegister } from "@/api/account";
 
 export default defineComponent({
-  name: "LoginView",
+  name: "RegisteredView",
   components: {},
   data() {
     return {
       name: "",
       password: "",
+      repassword: "",
+      mobile: "",
     };
   },
   methods: {
-    onLogin() {
-      AccountLogin({
-        username: this.name,
+    onRegister() {
+      AccountRegister({
+        accountName: this.name,
         password: this.password,
+        repassword: this.repassword,
+        mobile: this.mobile,
+        role: 0,
       }).then((res) => {
-        this.$router.push("/user");
+        this.$router.push("/login");
       });
     },
   },
@@ -73,25 +89,25 @@ export default defineComponent({
     box-sizing: border-box;
     color: #818691;
     font-size: 0.26rem;
+    margin-bottom: 0.3rem;
     outline: 0;
   }
   a {
     display: inline-block;
     text-decoration: none;
     margin-top: 0.2rem;
-    color: #818691;
-    font-size: 0.24rem;
   }
   .login {
     width: 6.5rem;
     height: 0.9rem;
-    background-color: #3a70ec;
+    background-color: #54ad4a;
     border: 0rem;
     box-shadow: 0px 6px 10px rgba(58, 112, 236, 0.3);
     border-radius: 12px;
     margin-top: 1.8rem;
     color: #ffffff;
     font-size: 0.26rem;
+    outline: 0;
   }
 }
 </style>
