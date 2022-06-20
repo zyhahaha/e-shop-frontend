@@ -6,7 +6,8 @@ import axios from 'axios';
 
 // import { Message, Notice } from 'view-design';
 
-const ApiBaseURL = '/dev-api'
+// const ApiBaseURL = '/dev-api'
+const ApiBaseURL = process.env.VUE_APP_BASEURL
 
 // 创建一个错误
 function errorCreate(msg: any) {
