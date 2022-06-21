@@ -1,15 +1,15 @@
 <template>
   <div>
     <p class="carousel" @click="$router.push('/coupon')">
-      <img  src="@/assets/banner2.png" alt="" style="height: 6.8rem" />
+      <img  :src="VUE_APP_IMAGE_HOST + '/' + productDetail.image" alt="" style="height: 6.8rem" />
     </p>
     <div class="info">
       <div class="info-inner">
         <p class="info-inner__title">
-          北欧风简约 四角柜子 原木深白色 给你极致的生活体验
+          {{ productDetail.name }}
         </p>
-        <p class="info-inner__subtitle">简约风格的街头感，潮流穿搭。</p>
-        <p class="info-inner__price">¥ 699</p>
+        <p class="info-inner__subtitle">{{ productDetail.description || '暂无描述' }}</p>
+        <p class="info-inner__price">¥ {{ productDetail.price }}</p>
       </div>
     </div>
     <!-- 优惠券 -->
@@ -35,7 +35,7 @@
     </div>
     <!-- 图文详情 -->
     <div class="detail">
-      <img src="@/assets/banner2.png" alt="" />
+      <img :src="VUE_APP_IMAGE_HOST + '/' + productDetail.image" alt="" />
     </div>
     <!-- pay -->
     <div class="ctrl">
@@ -59,22 +59,32 @@
     </div>
 
     <!-- 弹窗 -->
-    <GoodsCard v-if="isShowCard" @onHideCard="isShowCard = false" />
+    <!-- <GoodsCard v-if="isShowCard" @onHideCard="isShowCard = false" /> -->
   </div>
 </template>
 
 <script>
-import GoodsCard from "./components/card.vue";
+import { QueryProductDetail } from '@/api/product'
+import { VUE_APP_IMAGE_HOST } from "@/libs/constant"
+// import GoodsCard from "./components/card.vue";
 export default {
   name: "GoodsDetail",
-  components: {
-    GoodsCard,
-  },
+  // components: {
+  //   GoodsCard,
+  // },
   data() {
     return {
+      VUE_APP_IMAGE_HOST,
       isShowCard: false,
+      productDetail: {}
     };
   },
+  created(){
+    const productId = this.$route.params.id
+    QueryProductDetail(productId).then(res => {
+      this.productDetail = res
+    })
+  }
 };
 </script>
 

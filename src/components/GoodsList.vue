@@ -1,6 +1,6 @@
 <template>
   <div class="goods-list">
-    <div class="goods-item" @click="$router.push('/goods')" v-for="(goodsItem, key) in goodsList" :key="key">
+    <div class="goods-item" @click="$router.push(`/goods/${goodsItem.id}`)" v-for="(goodsItem, key) in goodsList" :key="key">
       <p class="goods-img">
         <img :src="VUE_APP_IMAGE_HOST + '/' + goodsItem.image" alt="" />
       </p>

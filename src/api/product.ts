@@ -13,3 +13,15 @@ export function QueryProductList (data: any) {
         params: data
     });
 }
+
+/**
+ * 商品详情
+ * @param {string} id 商品id
+ * @returns 
+ */
+export function QueryProductDetail(id: string) {
+    return request({
+        url: `/product/${id}`,
+        method: 'get',
+    });
+}
