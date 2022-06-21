@@ -22,120 +22,72 @@
         <span>下单时间</span>
       </div>
       <div class="information-right">
-        <p>9123351872</p>
+        <p>{{ orderDetail.order_no }}</p>
         <span>2022-06-11 17:31:27</span>
       </div>
     </div>
     <div class="content">
       <ul class="list">
-        <li class="list-item">
+        <li class="list-item" v-for="(productItem, key) in orderDetail.productList" :key="key">
           <div class="list-item_detail">
             <p class="list-item_detail--img">
-              <img src="" alt="" />
+              <img :src="VUE_APP_IMAGE_HOST + '/' + productItem.image" alt="" />
             </p>
             <div class="list-item_detail--text">
-              <p>北欧简约立式台灯约立式台灯立式台灯台灯约</p>
-              <span>3M;黑色;可调节</span>
+              <p>{{ productItem.name }}</p>
+              <span>{{ productItem.spec || '默认' }}</span>
             </div>
             <div class="list-item_detail--digital">
-              <p class="list-item_detail--digital__price">¥298</p>
-              <p class="list-item_detail--digital__count">×1</p>
-            </div>
-          </div>
-        </li>
-        <li class="list-item">
-          <div class="list-item_detail">
-            <p class="list-item_detail--img">
-              <img src="" alt="" />
-            </p>
-            <div class="list-item_detail--text">
-              <p>百搭短袖T恤 街头百搭短袖T恤</p>
-              <span>黑色；圆领款；M(165)</span>
-            </div>
-            <div class="list-item_detail--digital">
-              <p class="list-item_detail--digital__price">¥128</p>
-              <p class="list-item_detail--digital__count">×3</p>
-            </div>
-          </div>
-        </li>
-        <li class="list-item">
-          <div class="list-item_detail">
-            <p class="list-item_detail--img">
-              <img src="" alt="" />
-            </p>
-            <div class="list-item_detail--text">
-              <p>北欧简约立式台灯约立式台灯立式台灯台灯约</p>
-              <span>3M;黑色;可调节</span>
-            </div>
-            <div class="list-item_detail--digital">
-              <p class="list-item_detail--digital__price">¥298</p>
-              <p class="list-item_detail--digital__count">×1</p>
-            </div>
-          </div>
-        </li>
-        <li class="list-item">
-          <div class="list-item_detail">
-            <p class="list-item_detail--img">
-              <img src="" alt="" />
-            </p>
-            <div class="list-item_detail--text">
-              <p>北欧简约立式台灯约立式台灯立式台灯台灯约</p>
-              <span>3M;黑色;可调节</span>
-            </div>
-            <div class="list-item_detail--digital">
-              <p class="list-item_detail--digital__price">¥298</p>
-              <p class="list-item_detail--digital__count">×1</p>
-            </div>
-          </div>
-        </li>
-        <li class="list-item">
-          <div class="list-item_detail">
-            <p class="list-item_detail--img">
-              <img src="" alt="" />
-            </p>
-            <div class="list-item_detail--text">
-              <p>百搭短袖T恤 街头百搭短袖T恤</p>
-              <span>黑色；圆领款；M(165)</span>
-            </div>
-            <div class="list-item_detail--digital">
-              <p class="list-item_detail--digital__price">¥128</p>
-              <p class="list-item_detail--digital__count">×3</p>
-            </div>
-          </div>
-        </li>
-        <li class="list-item">
-          <div class="list-item_detail">
-            <p class="list-item_detail--img">
-              <img src="" alt="" />
-            </p>
-            <div class="list-item_detail--text">
-              <p>北欧简约立式台灯约立式台灯立式台灯台灯约</p>
-              <span>3M;黑色;可调节</span>
-            </div>
-            <div class="list-item_detail--digital">
-              <p class="list-item_detail--digital__price">¥298</p>
-              <p class="list-item_detail--digital__count">×1</p>
+              <p class="list-item_detail--digital__price">¥{{ productItem.price }}</p>
+              <p class="list-item_detail--digital__count">×{{ productItem.count }}</p>
             </div>
           </div>
         </li>
       </ul>
     </div>
     <div class="bottom">
-      <p class="bottom-count">共6件商品</p>
+      <p class="bottom-count">共{{ orderDetail.productList && orderDetail.productList.length }}件商品</p>
       <div class="bottom-price">
         <p>实付</p>
-        <span>¥1536</span>
+        <span>¥{{ computeOrderPrice(orderDetail.productList) }}</span>
       </div>
-      <p class="bottom-more">再来一单</p>
+      <!-- <p class="bottom-more">再来一单</p> -->
+
+      <p class="bottom-more red" v-if="orderDetail.order_status === 0" @click.stop="$router.push(`/submitorder/${orderDetail.id}`)">去付款</p>
+      <p class="bottom-more red" v-else-if="orderDetail.order_status === 2" @click.stop="()=>{}">确认收货</p>
+      <p class="bottom-more" v-else @click.stop="()=>{}">再来一单</p>
     </div>
   </div>
 </template>
 
 <script>
+import { VUE_APP_IMAGE_HOST } from "@/libs/constant"
 import { defineComponent } from "vue";
+import { QueryOrderDetail } from '@/api/order'
 
 export default defineComponent({
   name: "OrderDetails",
+  data(){
+    return {
+      VUE_APP_IMAGE_HOST,
+      orderDetail: {}
+    }
+  },
+  created(){
+    QueryOrderDetail(this.$route.params.id).then(res => {
+      this.orderDetail = res || {}
+    })
+  },
+  methods: {
+    computeOrderPrice(productList){
+      if (!productList || !productList.length) return 0;
+      let totalPrice = 0
+      productList.forEach(item => {
+        totalPrice += (item.price * item.count)
+      })
+      return totalPrice
+    }
+  }
 });
 </script>
 
@@ -228,6 +180,10 @@ export default defineComponent({
           height: 1.2rem;
           border: 1px solid rgb(226, 226, 226);
           margin-right: 0.2rem;
+          img {
+            width: 100%;
+            max-height: 100%;
+          }
         }
         &--text {
           flex: 1;
@@ -302,6 +258,10 @@ export default defineComponent({
     float: right;
     margin-right: 0.3rem;
     margin-top: 0.18rem;
+    &.red {
+      color: red;
+      background-color: #ffe7e9;
+    }
   }
 }
 </style>
