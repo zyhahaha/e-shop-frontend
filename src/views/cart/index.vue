@@ -4,20 +4,20 @@
       <ul class="list">
         <li class="list-item" v-for="(cartItem, key) in cartList" :key="key">
           <div class="list-item_img">
-            <img src="" alt="" />
+            <img :src="VUE_APP_IMAGE_HOST + '/' + cartItem.goods_image" alt="" />
           </div>
           <div class="list-item_text">
             <div class="list-item_text--top">
-              <p>{{ cartItem.goodsName }}</p>
-              <span>{{ cartItem.goodsSpec }}</span>
+              <p>{{ cartItem.goods_name }}</p>
+              <span>{{ cartItem.goods_spec || '默认' }}</span>
             </div>
             <div class="list-item_text--bottom">
               <div class="list-item_text--bottom__left">
-                <p>{{ cartItem.goodsPrice }}</p>
+                <p>{{ cartItem.goods_price }}</p>
               </div>
               <div class="list-item_text--bottom__right">
                 <img src="@/assets/minus.png" alt="" @click="onMinus(cartItem)" />
-                <p class="list-item_text--bottom__right---num">{{ cartItem.count }}</p>
+                <p class="list-item_text--bottom__right---num">{{ cartItem.quantity }}</p>
                 <img src="@/assets/add.png" alt="" @click="onAdd(cartItem)" />
               </div>
             </div>
@@ -28,7 +28,7 @@
     <!-- bottom -->
     <div class="count">
       <!-- <span class="count-selected">已选（3）</span> -->
-      <p class="count-btn" @click="$router.push('/submitorder')">结算 ({{ cartList.length }})</p>
+      <p class="count-btn" @click="onOrder">结算 ({{ cartList.length }})</p>
       <p class="count-price">合计 <span>¥{{ computePrice() }}</span></p>
     </div>
     <TabBar />
@@ -36,8 +36,11 @@
 </template>
 
 <script>
+import { VUE_APP_IMAGE_HOST } from "@/libs/constant"
 import { defineComponent } from "vue";
 import TabBar from "@/components/TabBar.vue"; // @ is an alias to /src
+import { QueryCartList } from '@/api/cart'
+import { CreateOrder } from '@/api/order'
 
 export default defineComponent({
   name: "NewCard",
@@ -46,40 +49,69 @@ export default defineComponent({
   },
   data() {
     return {
+      VUE_APP_IMAGE_HOST,
+      userId: '',
       cartList: [
-        {
-          goodsName: "百搭短袖T恤 ssss",
-          goodsSpec: "asdf",
-          goodsPrice: "298",
-          count: 1
-        },{
-          goodsName: "百搭短袖T恤 ssss",
-          goodsSpec: "asdf",
-          goodsPrice: "298",
-          count: 1
-        },{
-          goodsName: "百搭短袖T恤 ssss",
-          goodsSpec: "asdf",
-          goodsPrice: "298",
-          count: 1
-        },
+        // {
+        //   goodsName: "百搭短袖T恤 ssss",
+        //   goodsSpec: "asdf",
+        //   goodsPrice: "298",
+        //   count: 1
+        // },{
+        //   goodsName: "百搭短袖T恤 ssss",
+        //   goodsSpec: "asdf",
+        //   goodsPrice: "298",
+        //   count: 1
+        // },{
+        //   goodsName: "百搭短袖T恤 ssss",
+        //   goodsSpec: "asdf",
+        //   goodsPrice: "298",
+        //   count: 1
+        // },
       ],
     };
   },
+  created(){
+    this.userId = localStorage.getItem('userId')
+    this.getCartList()
+  },
   methods: {
+    onOrder(){
+      let productList = []
+      this.cartList.forEach(item => {
+        productList.push({
+          id: item.product_id,
+          quantity: item.quantity
+        })
+      })
+      CreateOrder({
+        user_id: this.userId,
+        product_list: JSON.stringify(productList)
+      }).then(res => {
+        const orderId = res.order_id
+        this.$router.push(`/submitorder/${orderId}`)
+      })
+    },
+    getCartList(){
+      QueryCartList({
+        user_id: this.userId
+      }).then(res => {
+        this.cartList = res.list || []
+      })
+    },
     onMinus(item) {
-      console.log(item);
-      item.count --
+      // console.log(item);
+      item.quantity --
     },
     onAdd(item) {
-      console.log(item);
-      item.count ++
+      // console.log(item);
+      item.quantity ++
     },
     // 计算合计
     computePrice(){
       let totalPrice = 0
       this.cartList.forEach(item => {
-        totalPrice += (item.count * item.goodsPrice)
+        totalPrice += (item.quantity * item.goods_price)
       })
       return totalPrice
     }
@@ -109,6 +141,7 @@ export default defineComponent({
         margin-right: 0.3rem;
         img {
           width: 100%;
+          max-height: 100%;
         }
       }
       &_text {
