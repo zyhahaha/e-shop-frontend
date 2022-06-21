@@ -32,7 +32,7 @@
             <li @click="$router.push('/user/order')">
               <i class="iconfont icon-daizhifu"></i>
               <br />
-              <span>待支付</span>
+              <span>待付款</span>
             </li>
             <li @click="$router.push('/user/order')">
               <i class="iconfont icon-daifahuo"></i>
@@ -42,7 +42,7 @@
             <li @click="$router.push('/user/order')">
               <i class="iconfont icon-daishouhuo"></i>
               <br />
-              <span>待收货</span>
+              <span>已发货</span>
             </li>
             <li @click="$router.push('/user/order')">
               <i class="iconfont icon-daishouhuo"></i>

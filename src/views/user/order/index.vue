@@ -9,35 +9,35 @@
     </ul>
     <div class="content">
       <ul class="list">
-        <li class="list-item" @click="$router.push('/user/order/detail')">
+        <li class="list-item" @click="$router.push(`/user/order/detail/${orderItem.id}`)" v-for="(orderItem, key) in orderList" :key="key">
           <div class="list-item_top">
             <p class="list-item_top--num">
               <span>订单编号</span>
-              <span>375261945907821</span>
+              <span>{{ orderItem.order_no }}</span>
             </p>
-            <span class="list-item_top--state">已完成</span>
+            <span class="list-item_top--state">{{ orderStatusDict[orderItem.order_status] || '未知' }}</span>
           </div>
-          <div class="list-item_detail">
+          <div class="list-item_detail" v-for="(productItem, key) in orderItem.productList" :key="key">
             <p class="list-item_detail--img">
-              <img src="" alt="" />
+              <img :src="VUE_APP_IMAGE_HOST + '/' + productItem.image" alt="" />
             </p>
             <div class="list-item_detail--text">
-              <p>北欧简约立式台灯约立式台灯立式台灯台灯约</p>
-              <span>3M;黑色;可调节</span>
+              <p>{{ productItem.name }}</p>
+              <span>{{ productItem.spec || '默认' }}</span>
             </div>
             <div class="list-item_detail--digital">
-              <p class="list-item_detail--digital__price">¥298</p>
-              <p class="list-item_detail--digital__count">×1</p>
+              <p class="list-item_detail--digital__price">¥{{ productItem.price }}</p>
+              <p class="list-item_detail--digital__count">×{{ productItem.count }}</p>
             </div>
           </div>
           <div class="list-item_bottom">
-            <p class="list-item_bottom--total">共4件商品</p>
-            <p class="list-item_bottom--pay">实付<span>¥536</span></p>
+            <p class="list-item_bottom--total">共{{ orderItem.productList.length }}件商品</p>
+            <p class="list-item_bottom--pay">实付<span>¥{{ computeOrderPrice(orderItem.productList) }}</span></p>
 
             <p class="list-item_bottom--more">再来一单</p>
           </div>
         </li>
-        <li class="list-item">
+        <!-- <li class="list-item">
           <div class="list-item_top">
             <p class="list-item_top--num">
               <span>订单编号</span>
@@ -92,18 +92,49 @@
 
             <p class="list-item_bottom--more red">去付款</p>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import { VUE_APP_IMAGE_HOST } from "@/libs/constant"
 import { defineComponent } from "vue";
-import TabBar from "@/components/TabBar.vue"; // @ is an alias to /src
+// import TabBar from "@/components/TabBar.vue"; // @ is an alias to /src
+import { QueryOrderList } from '@/api/order'
 
 export default defineComponent({
   name: "NewOrder",
+  data(){
+    return {
+      VUE_APP_IMAGE_HOST,
+      orderList: [],
+      orderStatusDict: {
+        0: '待付款',
+        1: '待发货',
+        2: '已发货',
+        3: '已完成'
+      }
+    }
+  },
+  created(){
+    this.getOrderList()
+  },
+  methods: {
+    getOrderList(){
+      QueryOrderList({user_id: localStorage.getItem('userId')}).then(res => {
+        this.orderList = res.list || []
+      })
+    },
+    computeOrderPrice(productList){
+      let totalPrice = 0
+      productList.forEach(item => {
+        totalPrice += (item.price * item.count)
+      })
+      return totalPrice
+    }
+  }
 });
 </script>
 
@@ -164,6 +195,10 @@ export default defineComponent({
           width: 1.2rem;
           height: 1.2rem;
           border: 1px solid rgb(226, 226, 226);
+          img {
+            width: 100%;
+            max-height: 100%;
+          }
         }
         &--text {
           flex: 1;
