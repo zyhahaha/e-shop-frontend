@@ -34,7 +34,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'couponGet',
     component: () => import(/* webpackChunkName: "get" */ '../views/coupon/get.vue')
   },{
-    path: '/submitorder',
+    path: '/submitorder/:id',
     name: 'submitorder',
     component: () => import(/* webpackChunkName: "submitorder" */ '../views/submitorder/index.vue')
   },{

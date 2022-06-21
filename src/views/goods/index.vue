@@ -48,13 +48,13 @@
           <img src="@/assets/home-logo.png" alt="" />
           <p>购物车</p>
           <div class="ctrl-left__cart--count">
-            <p>4</p>
+            <p>{{ cartTotal }}</p>
           </div>
         </div>
       </div>
       <div class="ctrl-right">
-        <p class="ctrl-right__cart" @click="isShowCard = true">加入购物车</p>
-        <p class="ctrl-right__buy" @click="isShowCard = true">立即购买</p>
+        <p class="ctrl-right__cart" @click="onCreatCart">加入购物车</p>
+        <p class="ctrl-right__buy" @click="onCreateOrder">立即购买</p>
       </div>
     </div>
 
@@ -65,7 +65,7 @@
 
 <script>
 import { QueryProductDetail } from '@/api/product'
-import { CreateCart } from '@/api/cart'
+import { CreateCart, QueryCartList } from '@/api/cart'
 import { CreateOrder } from '@/api/order'
 import { VUE_APP_IMAGE_HOST } from "@/libs/constant"
 // import GoodsCard from "./components/card.vue";
@@ -78,21 +78,51 @@ export default {
     return {
       VUE_APP_IMAGE_HOST,
       isShowCard: false,
+      cartTotal: 0,
+      userId: '',
+      productId: '',
       productDetail: {}
     };
   },
   created(){
-    const productId = this.$route.params.id
-    QueryProductDetail(productId).then(res => {
-      this.productDetail = res
-    })
+    this.productId = this.$route.params.id
+    this.userId = localStorage.getItem('userId')
+    this.initData()
   },
   methods: {
-    createOrder(){
-      CreateCart()
+    initData(){
+      this.getCartTotal()
+      // 查询商品详情
+      QueryProductDetail(this.productId).then(res => {
+        this.productDetail = res
+      })
     },
-    creatCart(){
-      CreateOrder()
+    getCartTotal(){
+      // 查询购物车数量
+      QueryCartList({
+        user_id: this.userId
+      }).then(res => {
+        this.cartTotal = res.total || 0
+      })
+    },
+    onCreatCart(){
+      CreateCart({
+        user_id: this.userId,
+        product_id: this.productId,
+        quantity: 1
+      }).then(res => {
+        this.getCartTotal()
+        alert('加入购物车成功')
+      })
+    },
+    onCreateOrder(){
+      CreateOrder({
+        user_id: this.userId,
+        product_list: JSON.stringify([{id: this.productId, quantity: 1}])
+      }).then(res => {
+        const orderId = res.order_id
+        this.$router.push(`/submitorder/${orderId}`)
+      })
     }
   }
 };

@@ -107,10 +107,11 @@ export default defineComponent({
   left: 0.4rem;
   width: 1.4rem;
   height: 1.4rem;
-  overflow: hidden;
+  // overflow: hidden;
   // background-color: #157658;
   img {
     width: 100%;
+    max-height: 100%;
   }
 }
 .name {
