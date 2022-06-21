@@ -1,11 +1,11 @@
 <template>
   <div class="order">
     <ul class="nav">
-      <li :class="{ active: orderType === 1 }">全部</li>
-      <li>待付款</li>
-      <li>待发货</li>
-      <li>已发货</li>
-      <li>已完成</li>
+      <li @click="onChangeOrderType('all')" :class="{ active: orderType === 'all' }">全部</li>
+      <li @click="onChangeOrderType(0)" :class="{ active: orderType === 0 }">待付款</li>
+      <li @click="onChangeOrderType(1)" :class="{ active: orderType === 1 }">待发货</li>
+      <li @click="onChangeOrderType(2)" :class="{ active: orderType === 2 }">已发货</li>
+      <li @click="onChangeOrderType(3)" :class="{ active: orderType === 3 }">已完成</li>
     </ul>
     <div class="content">
       <ul class="list">
@@ -34,65 +34,11 @@
             <p class="list-item_bottom--total">共{{ orderItem.productList.length }}件商品</p>
             <p class="list-item_bottom--pay">实付<span>¥{{ computeOrderPrice(orderItem.productList) }}</span></p>
 
-            <p class="list-item_bottom--more">再来一单</p>
+            <p class="list-item_bottom--more red" v-if="orderItem.order_status === 0" @click.stop="$router.push(`/submitorder/${orderItem.id}`)">去付款</p>
+            <p class="list-item_bottom--more red" v-else-if="orderItem.order_status === 2" @click.stop="()=>{}">确认收货</p>
+            <p class="list-item_bottom--more" v-else @click.stop="()=>{}">再来一单</p>
           </div>
         </li>
-        <!-- <li class="list-item">
-          <div class="list-item_top">
-            <p class="list-item_top--num">
-              <span>订单编号</span>
-              <span>375261945907821</span>
-            </p>
-            <span class="list-item_top--state">待发货</span>
-          </div>
-          <div class="list-item_detail">
-            <p class="list-item_detail--img">
-              <img src="" alt="" />
-            </p>
-            <div class="list-item_detail--text">
-              <p>北欧简约立式台灯约立式台灯立式台灯台灯约</p>
-              <span>3M;黑色;可调节</span>
-            </div>
-            <div class="list-item_detail--digital">
-              <p class="list-item_detail--digital__price">¥1298</p>
-              <p class="list-item_detail--digital__count">×1</p>
-            </div>
-          </div>
-          <div class="list-item_bottom">
-            <p class="list-item_bottom--total">共6件商品</p>
-            <p class="list-item_bottom--pay">实付<span>¥1536</span></p>
-
-            <p class="list-item_bottom--more">再来一单</p>
-          </div>
-        </li>
-        <li class="list-item">
-          <div class="list-item_top">
-            <p class="list-item_top--num">
-              <span>订单编号</span>
-              <span>375261945907821</span>
-            </p>
-            <span class="list-item_top--state">待付款</span>
-          </div>
-          <div class="list-item_detail">
-            <p class="list-item_detail--img">
-              <img src="" alt="" />
-            </p>
-            <div class="list-item_detail--text">
-              <p>北欧简约立式台灯约立式台灯立式台灯台灯约</p>
-              <span>3M;黑色;可调节</span>
-            </div>
-            <div class="list-item_detail--digital">
-              <p class="list-item_detail--digital__price">¥1298</p>
-              <p class="list-item_detail--digital__count">×1</p>
-            </div>
-          </div>
-          <div class="list-item_bottom">
-            <p class="list-item_bottom--total">共6件商品</p>
-            <p class="list-item_bottom--pay">实付<span>¥1536</span></p>
-
-            <p class="list-item_bottom--more red">去付款</p>
-          </div>
-        </li> -->
       </ul>
     </div>
   </div>
@@ -109,6 +55,7 @@ export default defineComponent({
   data(){
     return {
       VUE_APP_IMAGE_HOST,
+      orderType: 'all',
       orderList: [],
       orderStatusDict: {
         0: '待付款',
@@ -122,8 +69,16 @@ export default defineComponent({
     this.getOrderList()
   },
   methods: {
-    getOrderList(){
-      QueryOrderList({user_id: localStorage.getItem('userId')}).then(res => {
+    onChangeOrderType(type){
+      this.orderType = type
+      if (this.orderType === 'all') {
+        this.getOrderList()
+      } else {
+        this.getOrderList(this.orderType)
+      }
+    },
+    getOrderList(order_status){
+      QueryOrderList({order_status, user_id: localStorage.getItem('userId')}).then(res => {
         this.orderList = res.list || []
       })
     },
