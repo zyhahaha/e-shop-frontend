@@ -32,7 +32,10 @@ export default defineComponent({
       AccountLogin({
         username: this.name,
         password: this.password,
-      }).then((res) => {
+      }).then((res: any) => {
+        localStorage.setItem('token', res.token)
+        localStorage.setItem('userId', res.userInfo.id)
+        localStorage.setItem('userInfo', JSON.stringify(res.userInfo))
         this.$router.push("/user");
       });
     },
@@ -89,7 +92,7 @@ export default defineComponent({
     border: 0rem;
     box-shadow: 0px 6px 10px rgba(58, 112, 236, 0.3);
     border-radius: 12px;
-    margin-top: 1.8rem;
+    margin-top: 1.5rem;
     color: #ffffff;
     font-size: 0.26rem;
   }

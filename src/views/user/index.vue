@@ -5,9 +5,9 @@
         <div class="card-inner">
           <div class="card-inner-top">
             <p class="avatar">
-              <img src="@/assets/avatar.jpg" alt="" />
+              <img :src="VUE_APP_IMAGE_HOST + '/' + userInfo.avatar" alt="" />
             </p>
-            <p class="name">巴木旦</p>
+            <p class="name">{{ userInfo.username }}</p>
           </div>
           <div class="card-inner-bottom">
             <div class="card-inner-bottom__item">
@@ -76,6 +76,7 @@
 </template>
 
 <script lang="ts">
+import { VUE_APP_IMAGE_HOST } from "@/libs/constant"
 import { defineComponent } from "vue";
 import TabBar from "@/components/TabBar.vue"; // @ is an alias to /src
 
@@ -84,6 +85,18 @@ export default defineComponent({
   components: {
     TabBar,
   },
+  data(){
+    return {
+      VUE_APP_IMAGE_HOST,
+      userInfo: {}
+    }
+  },
+  created(){
+    let userStr = localStorage.getItem('userInfo')
+    if (userStr) {
+      this.userInfo = JSON.parse(userStr)
+    }
+  }
 });
 </script>
 
@@ -94,7 +107,8 @@ export default defineComponent({
   left: 0.4rem;
   width: 1.4rem;
   height: 1.4rem;
-  background-color: #157658;
+  overflow: hidden;
+  // background-color: #157658;
   img {
     width: 100%;
   }

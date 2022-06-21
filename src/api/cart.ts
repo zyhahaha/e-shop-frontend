@@ -22,7 +22,7 @@ export function QueryCartList(data: any) {
  * @param {string} quantity 商品数量
  * @returns 
  */
-export function CreateOrder(data: any) {
+export function CreateCart(data: any) {
     return request({
         url: '/cart',
         method: 'post',

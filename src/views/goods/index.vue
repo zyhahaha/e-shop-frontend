@@ -65,6 +65,8 @@
 
 <script>
 import { QueryProductDetail } from '@/api/product'
+import { CreateCart } from '@/api/cart'
+import { CreateOrder } from '@/api/order'
 import { VUE_APP_IMAGE_HOST } from "@/libs/constant"
 // import GoodsCard from "./components/card.vue";
 export default {
@@ -84,6 +86,14 @@ export default {
     QueryProductDetail(productId).then(res => {
       this.productDetail = res
     })
+  },
+  methods: {
+    createOrder(){
+      CreateCart()
+    },
+    creatCart(){
+      CreateOrder()
+    }
   }
 };
 </script>
