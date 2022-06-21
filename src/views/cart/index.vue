@@ -39,7 +39,7 @@
 import { VUE_APP_IMAGE_HOST } from "@/libs/constant"
 import { defineComponent } from "vue";
 import TabBar from "@/components/TabBar.vue"; // @ is an alias to /src
-import { QueryCartList } from '@/api/cart'
+import { QueryCartList, DeleteCartWithProduct } from '@/api/cart'
 import { CreateOrder } from '@/api/order'
 
 export default defineComponent({
@@ -51,24 +51,7 @@ export default defineComponent({
     return {
       VUE_APP_IMAGE_HOST,
       userId: '',
-      cartList: [
-        // {
-        //   goodsName: "百搭短袖T恤 ssss",
-        //   goodsSpec: "asdf",
-        //   goodsPrice: "298",
-        //   count: 1
-        // },{
-        //   goodsName: "百搭短袖T恤 ssss",
-        //   goodsSpec: "asdf",
-        //   goodsPrice: "298",
-        //   count: 1
-        // },{
-        //   goodsName: "百搭短袖T恤 ssss",
-        //   goodsSpec: "asdf",
-        //   goodsPrice: "298",
-        //   count: 1
-        // },
-      ],
+      cartList: [],
     };
   },
   created(){
@@ -90,6 +73,12 @@ export default defineComponent({
       }).then(res => {
         const orderId = res.order_id
         this.$router.push(`/submitorder/${orderId}`)
+        this.clearCart()
+      })
+    },
+    clearCart(){
+      this.cartList.forEach(item => {
+        DeleteCartWithProduct(item.id)
       })
     },
     getCartList(){
