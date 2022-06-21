@@ -35,7 +35,7 @@
     </div>
     <!-- 图文详情 -->
     <div class="detail">
-      <img :src="VUE_APP_IMAGE_HOST + '/' + productDetail.image" alt="" />
+      <img :src="VUE_APP_IMAGE_HOST + '/' + productDetail.image" alt="" style="width:100%;" />
     </div>
     <!-- pay -->
     <div class="ctrl">
